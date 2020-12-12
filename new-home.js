@@ -254,7 +254,7 @@ function sliderCtaHover() {
 		gsap.set(bgPurple, { yPercent: 101 });
 
 		cta.addEventListener("mouseenter", () => {
-			audioCtaHover();
+			//audioCtaHover();
 
 			gsap.to(cta, { scale: 1.2, duration: 0.55, ease: "myEaseSmooth", delay: 0 });
 			gsap.to(ctaText, { scale: 0.8, duration: 0.55, ease: "myEaseSmooth", delay: 0 });
@@ -281,7 +281,7 @@ function sliderArrowsHover() {
 
 		arrowNext.forEach((arrow) => {
 			arrow.addEventListener("mouseenter", (e) => {
-				audioArrowHover();
+				//audioArrowHover();
 
 				gsap.to(next, { xPercent: 100, duration: 0.55, ease: "myEaseSmooth" });
 			});
@@ -299,7 +299,7 @@ function sliderArrowsHover() {
 
 		arrowPrevious.forEach((arrow) => {
 			arrow.addEventListener("mouseenter", (e) => {
-				audioArrowHover();
+				//audioArrowHover();
 
 				gsap.to(previous, { xPercent: -100, duration: 0.55, ease: "myEaseSmooth" });
 			});
