@@ -45,14 +45,14 @@ function heroImageReveal() {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function allParagraphReveal() {
-	const paragraph = select("#temp-para-1");
+	const para = select("#temp-para-1");
 
-	const paragraphSplit = new SplitText(paragraph, { type: "chars lines words", linesClass: "paragraphChild" });
-	new SplitText(paragraph, { type: "chars lines words", linesClass: "paragraphParent" });
+	const paraSplit = new SplitText(para, { type: "chars lines words", linesClass: "paraChild" });
+	new SplitText(para, { type: "chars lines words", linesClass: "paraParent" });
 
 	const tl = gsap.timeline({ id: "tl", defaults: { duration: 1.34, ease: "myEaseSmooth" } });
 
-	tl.from(paragraphSplit.lines, { y: 233, stagger: 0.08 });
+	tl.from(paraSplit.lines, { y: 233, stagger: 0.08 });
 
 	ScrollTrigger.create({ trigger: "#temp-para-1-trigger", start: "top 90%", animation: tl });
 }
