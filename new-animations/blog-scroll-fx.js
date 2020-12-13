@@ -202,7 +202,7 @@ window.addEventListener("scroll", (e) => {
 	
 	// Current scroll - previous scroll
 	let scrollSpeed = window.scrollY - lastScroll;
-	let maxSpeed = 5;
+	let maxSpeed = 1;
 
 	// Scroll Velocity
 	scrollSpeed = Math.max(-maxSpeed, Math.min(maxSpeed, scrollSpeed));
