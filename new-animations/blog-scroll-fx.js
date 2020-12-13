@@ -26,7 +26,7 @@ const glsl = (x) => x[0];
 // Scene, Camera, Renderer
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-let container = selectID("blog-fx-container");
+let container = document.getElementById("blog-fx-container");
 let renderer = new THREE.WebGLRenderer({ alpha: true });
 
 renderer.setSize(container.offsetWidth, container.offsetHeight);
@@ -123,19 +123,14 @@ let meshes = [];
 let planeGeometry = new THREE.PlaneBufferGeometry(1, 1, 32, 32);
 
 function htmltoWebgl() {
-	// let IMAGES = Array.from(document.getElementsByClassName("blog-image-webgl"));
-	let IMAGES = selectAll(".blog-image-webgl");
+	
+	let IMAGES = document.querySelectorAll(".blog-image-webgl");
 	IMAGES.forEach((image) => {
 		let texture = new THREE.Texture(image);
 		texture.needsUpdate = true;
 
-		// Basic Materials
-		let materialBasic = new THREE.MeshBasicMaterial({
-			map: texture,
-		});
-
 		// Shader Materials
-		let materialShader = new THREE.ShaderMaterial({
+		let material = new THREE.ShaderMaterial({
 			fragmentShader,
 			vertexShader,
 			uniforms: {
@@ -145,7 +140,7 @@ function htmltoWebgl() {
 			},
 		});
 
-		let mesh = new THREE.Mesh(planeGeometry, materialShader);
+		let mesh = new THREE.Mesh(planeGeometry, material);
 		mesh.userData.image = image;
 
 		meshes.push(mesh);
