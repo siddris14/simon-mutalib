@@ -22,10 +22,6 @@ preloadImages().then(() => {
 
 const glsl = (x) => x[0];
 
-// const select = (e) => document.querySelector(e);
-// const selectID = (e) => document.getElementById(e);
-// const selectAll = (e) => document.querySelectorAll(e);
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Scene, Camera, Renderer
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -127,8 +123,8 @@ let meshes = [];
 let planeGeometry = new THREE.PlaneBufferGeometry(1, 1, 32, 32);
 
 function htmltoWebgl() {
-	let IMAGES = Array.from(document.getElementsByClassName("blog-image-webgl"));
-	// let IMAGES = selectAll(".blog-image-webgl");
+	// let IMAGES = Array.from(document.getElementsByClassName("blog-image-webgl"));
+	let IMAGES = selectAll(".blog-image-webgl");
 	IMAGES.forEach((image) => {
 		let texture = new THREE.Texture(image);
 		texture.needsUpdate = true;
