@@ -63,7 +63,7 @@ const vertexShader = glsl`
         vec4 newPosition = modelMatrix * vec4(pos, 1.);
 
         vec2 screenUV = newPosition.xy / uResolution;
-        newPosition.z =+ sin(screenUV.x + screenUV.y * 3.14) * 10. * uActivation;
+        newPosition.z =+ sin(screenUV.x + screenUV.y * 3.14) * 3. * uActivation;
 
         gl_Position = projectionMatrix * viewMatrix * newPosition;
 
