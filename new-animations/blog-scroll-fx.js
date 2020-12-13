@@ -137,7 +137,8 @@ let planeGeometry = new THREE.PlaneBufferGeometry(1, 1, 32, 32);
 
 function htmltoWebgl() {
 	
-	let IMAGES = document.querySelectorAll(".blog-image-webgl");
+	let IMAGES = document.querySelectorAll(".blog-thumb-image");
+	//let IMAGES = document.querySelectorAll(".blog-image-webgl");
 	
 	IMAGES.forEach((image) => {
 		
