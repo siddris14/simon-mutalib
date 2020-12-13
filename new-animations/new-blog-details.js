@@ -45,7 +45,7 @@ function heroImageReveal() {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function allParagraphReveal() {
-	const paragraph = selectID("temp-para-1");
+	const paragraph = select("#temp-para-1");
 
 	const paragraphSplit = new SplitText(paragraph, { type: "chars lines words", linesClass: "paragraphChild" });
 	new SplitText(paragraph, { type: "chars lines words", linesClass: "paragraphParent" });
