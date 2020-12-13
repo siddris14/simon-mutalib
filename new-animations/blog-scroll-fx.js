@@ -31,7 +31,7 @@ const glsl = (x) => x[0];
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 let container = selectID("blog-fx-container");
-let renderer = new THREE.WebGLRenderer({});
+let renderer = new THREE.WebGLRenderer({ alpha: true });
 
 renderer.setSize(container.offsetWidth, container.offsetHeight);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
