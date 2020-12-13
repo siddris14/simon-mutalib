@@ -65,7 +65,7 @@ function initBlogDetailsPage() {
 	setTimeout(function () {
 		titleReveal();
 		heroImageReveal();
-		allParagraphReveal();
+// 		allParagraphReveal();
 	}, 1200);
 }
 
