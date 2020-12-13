@@ -22,9 +22,9 @@ preloadImages().then(() => {
 
 const glsl = (x) => x[0];
 
-const select = (e) => document.querySelector(e);
-const selectID = (e) => document.getElementById(e);
-const selectAll = (e) => document.querySelectorAll(e);
+// const select = (e) => document.querySelector(e);
+// const selectID = (e) => document.getElementById(e);
+// const selectAll = (e) => document.querySelectorAll(e);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Scene, Camera, Renderer
