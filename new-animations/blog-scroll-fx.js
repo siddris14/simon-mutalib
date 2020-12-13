@@ -30,7 +30,7 @@ const selectAll = (e) => document.querySelectorAll(e);
 // Scene, Camera, Renderer
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-let container = selectID("fx-container");
+let container = selectID("blog-fx-container");
 let renderer = new THREE.WebGLRenderer({});
 
 renderer.setSize(container.offsetWidth, container.offsetHeight);
