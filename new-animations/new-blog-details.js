@@ -45,16 +45,16 @@ function heroImageReveal() {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function allParagraphReveal() {
-	const paragraphs = selectID("temp-para-1");
+	const paragraph = selectID("temp-para-1");
 
-	const paragraphsSplit = new SplitText(paragraphs, { type: "chars lines words", linesClass: "paragraphsChild" });
-	new SplitText(paragraphs, { type: "chars lines words", linesClass: "paragraphsParent" });
+	const paragraphSplit = new SplitText(paragraph, { type: "chars lines words", linesClass: "paragraphChild" });
+	new SplitText(paragraph, { type: "chars lines words", linesClass: "paragraphParent" });
 
 	const tl = gsap.timeline({ id: "tl", defaults: { duration: 1.34, ease: "myEaseSmooth" } });
 
-	tl.from(paragraphsSplit.lines, { y: 233, stagger: 0.08 });
+	tl.from(paragraphSplit.lines, { y: 233, stagger: 0.08 });
 
-	ScrollTrigger.create({ trigger: "#temp-para-1-trigger", start: "top 95%", animation: tl });
+	ScrollTrigger.create({ trigger: "#temp-para-1-trigger", start: "top 70%", animation: tl });
 
 	return tl;
 }
