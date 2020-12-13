@@ -54,9 +54,7 @@ function allParagraphReveal() {
 
 	tl.from(paragraphSplit.lines, { y: 233, stagger: 0.08 });
 
-	ScrollTrigger.create({ trigger: "#temp-para-1-trigger", start: "top 70%", animation: tl });
-
-	return tl;
+	ScrollTrigger.create({ trigger: "#temp-para-1-trigger", start: "top 90%", animation: tl });
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
