@@ -53,7 +53,7 @@ function heroParaReveal() {
 
 	const tl = gsap.timeline({ id: "tl", defaults: { duration: 1.34, ease: "myEaseSmooth" } });
 
-	tl.from(paraSplit.lines, { y: 233, stagger: 0.13 });
+	tl.from(paraSplit.lines, { y: 144, stagger: 0.13 });
 
 	ScrollTrigger.create({ trigger: trigger, start: "top 90%", animation: tl });
 
