@@ -53,7 +53,7 @@ function blogImageReveal() {
 	tl.from(images, { xPercent: 110, scale: 1.3, opacity: 0, stagger: 0.08 });
 	tl.from(imagesMask, { xPercent: -101, stagger: 0.08 }, "<");
 
-	ScrollTrigger.create({ trigger: imagesMask, start: "top 95%", animation: tl });
+	ScrollTrigger.create({ trigger: imagesMask, start: "top 85%", animation: tl });
 
 	return tl;
 }
