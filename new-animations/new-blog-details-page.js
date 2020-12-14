@@ -122,7 +122,6 @@ function initBlogDetailsPage() {
 	setTimeout(function () {
 		titleReveal();
 		heroImageReveal();
-		//heroParaReveal();
 		introImageOne();
 		introImageTwo();
 		blogImageReveal();
