@@ -128,5 +128,5 @@ function pageTransitionOut() {
 window.addEventListener("load", () => {
 	setTimeout(function () {
 		pageTransitionOut();
-	}, 1000);
+	}, 800);
 });
