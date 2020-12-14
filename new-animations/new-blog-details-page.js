@@ -106,8 +106,8 @@ function blogImageReveal() {
 
 	const tl = gsap.timeline({ id: "tl", defaults: { duration: 1.34, ease: "myEaseSmooth" } });
 
-	tl.from(images, { yPercent: 110, scale: 1.3, opacity: 0, stagger: 0.08 });
-	tl.from(imagesMask, { yPercent: -101, stagger: 0.08 }, "<");
+	tl.from(images, { xPercent: 110, scale: 1.3, opacity: 0, stagger: 0.08 });
+	tl.from(imagesMask, { xPercent: -101, stagger: 0.08 }, "<");
 
 	ScrollTrigger.create({ trigger: imagesMask, start: "top 85%", animation: tl });
 
