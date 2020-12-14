@@ -44,6 +44,26 @@ function heroImageReveal() {
 // In Page Images Reveal Aniamtions
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+function heroParaReveal() {
+	const para = select(".temp-h4-para");
+	const trigger = select(".temp-h4-para-wrap");
+
+	const paraSplit = new SplitText(para, { type: "chars lines words", linesClass: "paraChild" });
+	new SplitText(para, { type: "chars lines words", linesClass: "paraParent" });
+
+	const tl = gsap.timeline({ id: "tl", defaults: { duration: 1.34, ease: "myEaseSmooth" } });
+
+	tl.from(paraSplit.lines, { y: 233, stagger: 0.08 });
+
+	ScrollTrigger.create({ trigger: trigger, start: "top 85%", animation: tl });
+
+	return tl;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// In Page Images Reveal Aniamtions
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 function introImageOne() {
 	const image = select(".temp-mid-image");
 	const imageMask = select(".temp-mid-image-wrap");
@@ -102,6 +122,7 @@ function initBlogDetailsPage() {
 	setTimeout(function () {
 		titleReveal();
 		heroImageReveal();
+		heroParaReveal();
 		introImageOne();
 		introImageTwo();
 		blogImageReveal();
