@@ -41,6 +41,42 @@ function heroImageReveal() {
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// In Page Images Reveal Aniamtions
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function introImageOne() {
+	const image = select(".temp-mid-image");
+	const imageMask = select(".temp-mid-image-wrap");
+
+	const tl = gsap.timeline({ id: "tl", defaults: { duration: 1.34, ease: "myEaseSmooth" } });
+
+	tl.from(image, { xPercent: 110, scale: 1.3, opacity: 0 });
+	tl.from(imageMask, { xPercent: -101 }, "<");
+
+	ScrollTrigger.create({ trigger: imagesMask, start: "top 85%", animation: tl });
+
+	return tl;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// In Page Images Reveal Aniamtions
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function introImageTwo() {
+	const image = select(".temp-last-image");
+	const imageMask = select(".temp-last-image-wrap");
+
+	const tl = gsap.timeline({ id: "tl", defaults: { duration: 1.34, ease: "myEaseSmooth" } });
+
+	tl.from(image, { xPercent: 110, scale: 1.3, opacity: 0 });
+	tl.from(imageMask, { xPercent: -101 }, "<");
+
+	ScrollTrigger.create({ trigger: imagesMask, start: "top 85%", animation: tl });
+
+	return tl;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Related Image Reveal Aniamtions
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -66,6 +102,8 @@ function initBlogDetailsPage() {
 	setTimeout(function () {
 		titleReveal();
 		heroImageReveal();
+		introImageOne();
+		introImageTwo();
 		blogImageReveal();
 	}, 1200);
 }
