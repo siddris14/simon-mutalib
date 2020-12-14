@@ -41,7 +41,7 @@ function initContactReveal() {
 	setTimeout(function () {
 		contactEnter();
 		emailHover();
-	}, 1000);
+	}, 1200);
 }
 
 window.addEventListener("load", () => {
