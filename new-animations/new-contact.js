@@ -8,8 +8,8 @@ function contactEnter() {
 	const image = select(".new-contact-image");
 	const imageMask = select(".new-contact-image-wrap");
 
-	const addressSplit = new SplitText(address, { type: "lines chars", linesClass: "addressChild" });
-	new SplitText(address, { type: "lines", linesClass: "addressParent" });
+	const addressSplit = new SplitText(address, { type: "chars lines words", linesClass: "addressChild" });
+	new SplitText(address, { type: "chars lines words", linesClass: "addressParent" });
 
 	const emailSplit = new SplitText(email);
 
