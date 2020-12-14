@@ -3,7 +3,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Set Delay Time
-const delayTime = 1800;
+const delayTime = 1600;
 
 // Nav Links
 $(".new-nav-link").click(function (e) {
@@ -128,5 +128,5 @@ function pageTransitionOut() {
 window.addEventListener("load", () => {
 	setTimeout(function () {
 		pageTransitionOut();
-	}, 1200);
+	}, 1000);
 });
