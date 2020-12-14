@@ -71,7 +71,7 @@ function introImageTwo() {
 	tl.from(image, { xPercent: 110, scale: 1.3, opacity: 0 });
 	tl.from(imageMask, { xPercent: -101 }, "<");
 
-	ScrollTrigger.create({ trigger: imagesMask, start: "top 85%", animation: tl });
+	ScrollTrigger.create({ trigger: imageMask, start: "top 85%", animation: tl });
 
 	return tl;
 }
@@ -81,15 +81,15 @@ function introImageTwo() {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function blogImageReveal() {
-	const images = selectAll(".blog-thumb-image");
-	const imagesMask = selectAll(".blog-image-wrap");
+	const image = selectAll(".blog-thumb-image");
+	const imageMask = selectAll(".blog-image-wrap");
 
 	const tl = gsap.timeline({ id: "tl", defaults: { duration: 1.34, ease: "myEaseSmooth" } });
 
-	tl.from(images, { xPercent: 110, scale: 1.3, opacity: 0, stagger: 0.08 });
-	tl.from(imagesMask, { xPercent: -101, stagger: 0.08 }, "<");
+	tl.from(image, { xPercent: 110, scale: 1.3, opacity: 0, stagger: 0.08 });
+	tl.from(imageMask, { xPercent: -101, stagger: 0.08 }, "<");
 
-	ScrollTrigger.create({ trigger: imagesMask, start: "top 85%", animation: tl });
+	ScrollTrigger.create({ trigger: imageMask, start: "top 85%", animation: tl });
 
 	return tl;
 }
