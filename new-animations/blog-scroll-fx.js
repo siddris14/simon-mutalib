@@ -3,22 +3,17 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const preloadImages = () => {
-	
 	return new Promise((resolve, reject) => {
 		imagesLoaded(document.querySelectorAll("img"), resolve);
-		
 	});
 };
-
 // then
 preloadImages().then(() => {
-	
 	// remove loader
 	document.body.classList.remove("loading");
 
 	// Run the Page Animation
 	htmltoWebgl();
-	
 });
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -63,7 +58,7 @@ const vertexShader = glsl`
         vec4 newPosition = modelMatrix * vec4(pos, 1.);
 
         vec2 screenUV = newPosition.xy / uResolution;
-        newPosition.z =+ sin(screenUV.x + screenUV.y * 3.14) * 3. * uActivation;
+        newPosition.z =+ sin(screenUV.x + screenUV.y * 3.14) * 10. * uActivation;
 
         gl_Position = projectionMatrix * viewMatrix * newPosition;
 
@@ -91,15 +86,12 @@ const fragmentShader = glsl`
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function getFOV() {
-	
 	let height = container.offsetHeight;
 	let fov = Math.atan(height / (2 * camera.position.z)) * 2;
 	return (fov / Math.PI) * 180;
-	
 }
 
 function setScale(mesh) {
-	
 	let image = mesh.userData.image;
 	let rect = image.getBoundingClientRect();
 	mesh.scale.set(rect.width, rect.height, 1);
@@ -107,25 +99,20 @@ function setScale(mesh) {
 	mesh.userData.rect = rect;
 	mesh.userData.top = image.offsetTop;
 	mesh.userData.left = image.offsetLeft;
-	
 }
 
 function setPosition(mesh, y = window.scrollY) {
-	
 	let rect = mesh.userData.rect;
 	mesh.position.set(
 		mesh.userData.left - window.innerWidth / 2 + rect.width / 2,
 		-mesh.userData.top + window.innerHeight / 2 - rect.height / 2 + y,
 		0
 	);
-
 }
 
 function setScalePosition(mesh) {
-	
 	setScale(mesh);
 	setPosition(mesh);
-	
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -136,11 +123,9 @@ let meshes = [];
 let planeGeometry = new THREE.PlaneBufferGeometry(1, 1, 32, 32);
 
 function htmltoWebgl() {
-	
+	// let IMAGES = Array.from(document.getElementsByClassName("blog-image-webgl"));
 	let IMAGES = document.querySelectorAll(".blog-image-webgl");
-	
 	IMAGES.forEach((image) => {
-		
 		let texture = new THREE.Texture(image);
 		texture.needsUpdate = true;
 
@@ -151,15 +136,12 @@ function htmltoWebgl() {
 
 		// Shader Materials
 		let materialShader = new THREE.ShaderMaterial({
-			
 			fragmentShader,
 			vertexShader,
 			uniforms: {
-				
 				uMap: new THREE.Uniform(texture),
 				uResolution: new THREE.Uniform(new THREE.Vector2(window.innerWidth, window.innerHeight)),
 				uActivation: new THREE.Uniform(0),
-				
 			},
 		});
 
@@ -178,7 +160,6 @@ function htmltoWebgl() {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function resize() {
-	
 	renderer.setSize(window.innerWidth, window.innerHeight);
 	camera.fov = getFOV();
 	camera.aspect = window.innerWidth / window.innerHeight;
@@ -199,22 +180,19 @@ window.addEventListener("resize", resize);
 let lastScroll = window.scrollY;
 
 window.addEventListener("scroll", (e) => {
-	
 	// Current scroll - previous scroll
 	let scrollSpeed = window.scrollY - lastScroll;
-	let maxSpeed = 1;
+	let maxSpeed = 5;
 
 	// Scroll Velocity
 	scrollSpeed = Math.max(-maxSpeed, Math.min(maxSpeed, scrollSpeed));
 
 	// Activate Scroll
 	meshes.forEach((mesh) => {
-		
 		setPosition(mesh, window.scrollY);
 
 		let uActivation = mesh.material.uniforms.uActivation;
 		uActivation.value += scrollSpeed * 0.01;
-		
 	});
 
 	// Keep track of last scroll
@@ -226,16 +204,12 @@ window.addEventListener("scroll", (e) => {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function render() {
-	
 	meshes.forEach((mesh) => {
-		
 		let uActivation = mesh.material.uniforms.uActivation;
 		uActivation.value += (0 - uActivation.value) * 0.1;
 
 		if (Math.abs(uActivation.value) < 0.00001) {
-			
 			uActivation.value = 0;
-			
 		}
 	});
 
