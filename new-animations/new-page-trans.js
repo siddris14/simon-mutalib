@@ -35,6 +35,16 @@ $(".blog-card").click(function (e) {
 	}, delayTime);
 });
 
+// Works Cards Links
+$(".new-work-link").click(function (e) {
+	e.preventDefault();
+	const goTo = this.getAttribute("href");
+
+	setTimeout(function () {
+		window.location = goTo;
+	}, delayTime);
+});
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Call Transition on Specific Elements
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -74,6 +84,18 @@ function blogCardClick() {
 }
 
 blogCardClick();
+
+function workListClick() {
+	const blogCardsLink = selectAll(".new-work-link");
+
+	blogCardsLink.forEach((link) => {
+		link.addEventListener("click", (e) => {
+			pageTransitionIn();
+		});
+	});
+}
+
+workListClick();
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Page Transition
