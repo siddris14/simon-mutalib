@@ -117,8 +117,7 @@ let meshes = [];
 let planeGeometry = new THREE.PlaneBufferGeometry(1, 1, 32, 32);
 
 function htmltoWebgl() {
-	// let IMAGES = Array.from(document.getElementsByClassName("blog-image-webgl"));
-	let IMAGES = document.querySelectorAll(".blog-image-webgl");
+	let IMAGES = Array.from(document.getElementsByClassName("blog-image-webgl"));
 	IMAGES.forEach((image) => {
 		let texture = new THREE.Texture(image);
 		texture.needsUpdate = true;
@@ -133,9 +132,9 @@ function htmltoWebgl() {
 			fragmentShader,
 			vertexShader,
 			uniforms: {
-				uMap: new THREE.Uniform(texture),
-				uResolution: new THREE.Uniform(new THREE.Vector2(window.innerWidth, window.innerHeight)),
-				uActivation: new THREE.Uniform(0),
+				uMap: { value: texture },
+				uResolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
+				uActivation: { value: 0 },
 			},
 		});
 
