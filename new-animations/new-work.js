@@ -69,7 +69,6 @@ function projectHover() {
 		gsap.set(".new-work-listing", { autoAlpha: 1 });
 
 		link.addEventListener("mouseenter", () => {
-			audioProjectHover();
 
 			gsap.to(titleSplit.chars, {
 				yPercent: -100,
