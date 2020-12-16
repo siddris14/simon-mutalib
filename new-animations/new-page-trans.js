@@ -45,6 +45,16 @@ $(".new-work-link").click(function (e) {
 	}, delayTime);
 });
 
+// Next Project Links
+$(".temp-next-card-wrap").click(function (e) {
+	e.preventDefault();
+	const goTo = this.getAttribute("href");
+
+	setTimeout(function () {
+		window.location = goTo;
+	}, delayTime);
+});
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Call Transition on Specific Elements
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -96,6 +106,18 @@ function workListClick() {
 }
 
 workListClick();
+
+function nextProjectClick() {
+	const blogCardsLink = selectAll(".temp-next-card-wrap");
+
+	blogCardsLink.forEach((link) => {
+		link.addEventListener("click", (e) => {
+			pageTransitionIn();
+		});
+	});
+}
+
+nextProjectClick();
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Page Transition
