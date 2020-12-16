@@ -62,21 +62,21 @@ function heroImageReveal() {
 // Paragraph Reveal Aniamtions
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-function heroParaReveal() {
-	const para = select(".temp-h4-para");
-	const trigger = select(".temp-h4-para-wrap");
+// function heroParaReveal() {
+// 	const para = select(".temp-h4-para");
+// 	const trigger = select(".temp-h4-para-wrap");
 
-	const paraSplit = new SplitText(para, { type: "chars lines words", linesClass: "paraChild" });
-	new SplitText(para, { type: "chars lines words", linesClass: "paraParent" });
+// 	const paraSplit = new SplitText(para, { type: "chars lines words", linesClass: "paraChild" });
+// 	new SplitText(para, { type: "chars lines words", linesClass: "paraParent" });
 
-	const tl = gsap.timeline({ id: "tl", defaults: { duration: 1.34, ease: "myEaseSmooth" } });
+// 	const tl = gsap.timeline({ id: "tl", defaults: { duration: 1.34, ease: "myEaseSmooth" } });
 
-	tl.from(paraSplit.lines, { y: 144, stagger: 0.13 });
+// 	tl.from(paraSplit.lines, { y: 144, stagger: 0.13 });
 
-	ScrollTrigger.create({ trigger: trigger, start: "top 90%", animation: tl });
+// 	ScrollTrigger.create({ trigger: trigger, start: "top 90%", animation: tl });
 
-	return tl;
-}
+// 	return tl;
+// }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Image 1 Reveal Aniamtions
