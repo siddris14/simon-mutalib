@@ -25,6 +25,16 @@ $(".new-nav-logo").click(function (e) {
 	}, delayTime);
 });
 
+// Slider CTA Links
+$(".new-slider-cta").click(function (e) {
+	e.preventDefault();
+	const goTo = this.getAttribute("href");
+
+	setTimeout(function () {
+		window.location = goTo;
+	}, delayTime);
+});
+
 // Blog Cards Links
 $(".blog-card").click(function (e) {
 	e.preventDefault();
@@ -82,6 +92,18 @@ function logoLinkClick() {
 }
 
 logoLinkClick();
+
+function sliderCtaLink() {
+	const logoLinks = selectAll(".new-slider-cta");
+
+	logoLinks.forEach((link) => {
+		link.addEventListener("click", (e) => {
+			pageTransitionIn();
+		});
+	});
+}
+
+sliderCtaLink();
 
 function blogCardClick() {
 	const blogCardsLink = selectAll(".blog-card");
