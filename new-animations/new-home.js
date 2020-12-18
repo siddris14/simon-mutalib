@@ -290,7 +290,7 @@ function sliderCtaHover() {
 			gsap.to([titles, arrows, description], { opacity: 1, duration: 0.55, ease: "myEaseSmooth", delay: 0.3 });
 
 			// reset image position
-			gsap.set(image, { rotationY: -55, opacity: 0, duration: 0, delay: 0.1 });
+			gsap.set(image, { rotationY: -55, opacity: 0, duration: 0, delay: 1 });
 		});
 	});
 }
