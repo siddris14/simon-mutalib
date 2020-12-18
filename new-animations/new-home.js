@@ -251,19 +251,44 @@ function sliderCtaHover() {
 	const ctaText = selectAll(".new-cta-text");
 	const bgPurple = selectAll(".new-cta-bg-hover");
 
+	const titles = selectAll(".new-slider-titles-wrap");
+	const arrows = selectAll(".new-arrows");
+	const description = selectAll(".new-slider-brief-wrap");
+
+	const image = selectAll(".new-slider-image");
+	const imageWrap = selectAll(".new-slider-image-wrap");
+
 	ctas.forEach((cta) => {
 		gsap.set(bgPurple, { yPercent: 101 });
+		gsap.set(imageWrap, { autoAlpha: 1 });
 
 		cta.addEventListener("mouseenter", () => {
+			// cta in
 			gsap.to(cta, { scale: 1.2, duration: 0.55, ease: "myEaseSmooth", delay: 0 });
 			gsap.to(ctaText, { scale: 0.8, duration: 0.55, ease: "myEaseSmooth", delay: 0 });
 			gsap.to(bgPurple, { yPercent: 0, duration: 0.55, stagger: 0.05, ease: "myEaseSmooth", delay: 0 });
+
+			// titles out
+			gsap.to([titles, arrows, description], { opacity: 0, duration: 0.55, ease: "myEaseSmooth", delay: 0 });
+
+			// image in
+			gsap.from(image, { opacity: 0, rotationY: -90, transformOrigin: "50% 30%", duration: 55, ease: "myEaseSmooth", delay: 0.1 });
 		});
 
 		cta.addEventListener("mouseleave", () => {
+			// cta out
 			gsap.to(cta, { scale: 1, duration: 0.55, ease: "myEaseSmooth" });
 			gsap.to(ctaText, { scale: 1, duration: 0.55, ease: "myEaseSmooth", delay: 0 });
 			gsap.to(bgPurple, { yPercent: 101, duration: 0.55, stagger: 0.05, ease: "myEaseSmooth", delay: 0 });
+
+			// image out
+			gsap.to(image, { opacity: 0, rotationY: 90, transformOrigin: "50% 30%", duration: 55, ease: "myEaseSmooth", delay: 0 });
+
+			// titles in
+			gsap.to([titles, arrows, description], { opacity: 1, duration: 0.55, ease: "myEaseSmooth", delay: 0.1 });
+
+			// reset image position
+			gsap.to(image, { opacity: 0, rotationY: 0, duration: 0, delay: 0.1 });
 		});
 	});
 }
