@@ -255,10 +255,10 @@ function sliderCtaHover() {
 	const arrows = selectAll(".new-arrows");
 	const description = selectAll(".new-slider-brief-wrap");
 
-	const image = selectAll(".new-slider-image");
+	const image = selectAll(".slider-image-mask");
 	const imageWrap = selectAll(".new-slider-image-wrap");
 
-	gsap.set(image, { rotationY: -55, opacity: 0 });
+	gsap.set(image, { scale: 1.15, rotationY: -55, opacity: 0 });
 	gsap.set(imageWrap, { autoAlpha: 1 });
 
 	ctas.forEach((cta) => {
@@ -274,7 +274,15 @@ function sliderCtaHover() {
 			gsap.to([titles, arrows, description], { opacity: 0, duration: 0.55, ease: "myEaseSmooth", delay: 0 });
 
 			// image in
-			gsap.to(image, { opacity: 1, rotationY: 0, transformOrigin: "50% 50% -890", duration: 0.89, ease: "myEaseSmooth", delay: 0.1 });
+			gsap.to(image, {
+				scale: 1,
+				opacity: 1,
+				rotationY: 0,
+				transformOrigin: "50% 50% -890",
+				duration: 0.89,
+				ease: "myEaseSmooth",
+				delay: 0.1,
+			});
 		});
 
 		cta.addEventListener("mouseleave", () => {
@@ -284,10 +292,18 @@ function sliderCtaHover() {
 			gsap.to(bgPurple, { yPercent: 101, duration: 0.55, stagger: 0.05, ease: "myEaseSmooth", delay: 0 });
 
 			// image out
-			gsap.to(image, { opacity: 0, rotationY: 55, transformOrigin: "50% 50% -890", duration: 0.89, ease: "myEaseSmooth", delay: 0 });
+			gsap.to(image, {
+				scale: 1.15,
+				opacity: 0,
+				rotationY: 55,
+				transformOrigin: "50% 50% -890",
+				duration: 0.89,
+				ease: "myEaseSmooth",
+				delay: 0,
+			});
 
 			// titles in
-			gsap.to([titles, arrows, description], { opacity: 1, duration: 0.55, ease: "myEaseSmooth", delay: 0.3 });
+			gsap.from([titles, arrows, description], { x: -144, opacity: 1, duration: 0.55, ease: "myEaseSmooth", delay: 0.3 });
 
 			// reset image position
 			gsap.set(image, { rotationY: -55, opacity: 0, duration: 0, delay: 1 });
