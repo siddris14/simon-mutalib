@@ -52,10 +52,9 @@ function initLoadingScreen() {
 	// Timeline In
 	const tlIn = gsap.timeline({ defaults: { duration: 1.34, ease: "myEaseSmooth" } });
 
-	tlIn
-		.from(smTitleSplit.chars, { y: 233, stagger: 0.08 })
-		.from(counter, { y: 233 }, "<.3")
-		.from(captionSplit.chars, { opacity: 0, stagger: { from: "random", each: 0.03 } }, "<.3");
+	tlIn.from(smTitleSplit.chars, { y: 233, stagger: 0.08 });
+	tlIn.from(counter, { y: 233 }, "<.3");
+	tlIn.from(captionSplit.chars, { opacity: 0, stagger: { from: "random", each: 0.03 } }, "<.3");
 
 	// Timeline Count
 	const tlCount = gsap.timeline({ defaults: { duration: 5, ease: "none" } });
@@ -65,12 +64,11 @@ function initLoadingScreen() {
 	// Timeline Out
 	const tlOut = gsap.timeline({ defaults: { duration: 1.34, ease: "myEaseSmooth" } });
 
-	tlOut
-		.to(smTitleSplit.chars, { y: -233, stagger: 0.08 }, "<.5")
-		.to(counter, { y: -233, stagger: 0.08 }, "<.3")
-		.to(captionSplit.lines, { y: 144, stagger: 0.05 }, "<")
-		.to(".new-loading-screen", { xPercent: 105, ease: Expo.easeInOut }, "<1")
-		.to(".new-loading-screen", { display: "none" }, "<1");
+	tlOut.to(smTitleSplit.chars, { y: -233, stagger: 0.08 }, "<.5");
+	tlOut.to(counter, { y: -233, stagger: 0.08 }, "<.3");
+	tlOut.to(captionSplit.lines, { y: 144, stagger: 0.05 }, "<");
+	tlOut.to(".new-loading-screen", { xPercent: 105, ease: Expo.easeInOut }, "<1");
+	tlOut.to(".new-loading-screen", { display: "none" }, "<1");
 
 	// Master Timeline
 	const masterTl = gsap.timeline({ id: "masterTl", defaults: { duration: 1.34, ease: "myEaseSmooth" } });
@@ -110,10 +108,9 @@ function heroReveal() {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function initSliderHome() {
-	gsap
-		.set(".new-hero-container", { autoAlpha: 1 })
-		.set(".new-sliders-container", { autoAlpha: 1 })
-		.set(".new-slider", { opacity: 0, display: "flex" });
+	gsap.set(".new-hero-container", { autoAlpha: 1 });
+	gsap.set(".new-sliders-container", { autoAlpha: 1 });
+	gsap.set(".new-slider", { opacity: 0, display: "flex" });
 
 	let currentStep = 1;
 	const totalSlides = selectAll(".new-slider").length;
@@ -139,14 +136,13 @@ function initSliderHome() {
 
 		const tlIn = gsap.timeline({ id: "tlIn", defaults: { duration: 1.34, ease: "myEaseSmooth" } });
 
-		tlIn
-			.fromTo(SLIDER, { autoAlpha: 0 }, { autoAlpha: 1 }, "<.2")
-			.fromTo(titleBlock, { y: -89, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.05 }, "<.1")
-			.fromTo(titleSplit.chars, { y: -144 }, { y: 0, stagger: 0.01 }, "<")
-			.fromTo(brifSplit.lines, { y: 144 }, { y: 0, stagger: 0.13 }, "<")
-			.fromTo(ctaOpen, { scale: 0, rotation: 45 }, { scale: 1, rotation: 0 }, "<.2")
-			.fromTo(nextArrow, { x: -13, opacity: 0 }, { x: 0, opacity: 1 }, "<.1")
-			.fromTo(previousArrow, { x: 13, opacity: 0 }, { x: 0, opacity: 1 }, "<");
+		tlIn.fromTo(SLIDER, { autoAlpha: 0 }, { autoAlpha: 1 }, "<.2");
+		tlIn.fromTo(titleBlock, { y: -89, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.05 }, "<.1");
+		tlIn.fromTo(titleSplit.chars, { y: -144 }, { y: 0, stagger: 0.01 }, "<");
+		tlIn.fromTo(brifSplit.lines, { y: 144 }, { y: 0, stagger: 0.13 }, "<");
+		tlIn.fromTo(ctaOpen, { scale: 0, rotation: 45 }, { scale: 1, rotation: 0 }, "<.2");
+		tlIn.fromTo(nextArrow, { x: -13, opacity: 0 }, { x: 0, opacity: 1 }, "<.1");
+		tlIn.fromTo(previousArrow, { x: 13, opacity: 0 }, { x: 0, opacity: 1 }, "<");
 
 		return tlIn;
 	}
@@ -272,39 +268,37 @@ function sliderCtaHover() {
 
 		cta.addEventListener("mouseenter", () => {
 			// cta in
-			gsap
-				.to(cta, { scale: 1.2, duration: 0.55, ease: "myEaseSmooth", delay: 0 })
-				.to(ctaText, { scale: 0.8, duration: 0.55, ease: "myEaseSmooth", delay: 0 })
-				.to(bgPurple, { yPercent: 0, duration: 0.55, stagger: 0.05, ease: "myEaseSmooth", delay: 0 })
+			gsap.to(cta, { scale: 1.2, duration: 0.55, ease: "myEaseSmooth", delay: 0 });
+			gsap.to(ctaText, { scale: 0.8, duration: 0.55, ease: "myEaseSmooth", delay: 0 });
+			gsap.to(bgPurple, { yPercent: 0, duration: 0.55, stagger: 0.05, ease: "myEaseSmooth", delay: 0 });
 
-				// titles out
-				.to([titles, arrows, description], { opacity: 0, duration: 0.55, ease: "myEaseSmooth", delay: 0 })
+			// titles out
+			gsap.to([titles, arrows, description], { opacity: 0, duration: 0.55, ease: "myEaseSmooth", delay: 0 });
 
-				// image in
-				.to(image, { scale: 1, duration: 0.89, ease: "myEaseSmooth", delay: 0.1 })
-				.to(imageMask, { opacity: 1, rotationY: 0, transformOrigin: "50% 50% -890", duration: 0.89, ease: "myEaseSmooth", delay: 0 });
+			// image in
+			gsap.to(image, { scale: 1, duration: 0.89, ease: "myEaseSmooth", delay: 0.1 });
+			gsap.to(imageMask, { opacity: 1, rotationY: 0, transformOrigin: "50% 50% -890", duration: 0.89, ease: "myEaseSmooth", delay: 0 });
 		});
 
 		cta.addEventListener("mouseleave", () => {
 			// cta out
-			gsap
-				.to(cta, { scale: 1, duration: 0.55, ease: "myEaseSmooth" })
-				.to(ctaText, { scale: 1, duration: 0.55, ease: "myEaseSmooth", delay: 0 })
-				.to(bgPurple, { yPercent: 101, duration: 0.55, stagger: 0.05, ease: "myEaseSmooth", delay: 0 })
+			gsap.to(cta, { scale: 1, duration: 0.55, ease: "myEaseSmooth" });
+			gsap.to(ctaText, { scale: 1, duration: 0.55, ease: "myEaseSmooth", delay: 0 });
+			gsap.to(bgPurple, { yPercent: 101, duration: 0.55, stagger: 0.05, ease: "myEaseSmooth", delay: 0 });
 
-				// image out
-				.to(image, { scale: 1.15, duration: 0.89, ease: "myEaseSmooth", delay: 0 })
-				.to(imageMask, { opacity: 0, rotationY: 55, transformOrigin: "50% 50% -890", duration: 0.89, ease: "myEaseSmooth", delay: 0 })
+			// image out
+			gsap.to(image, { scale: 1.15, duration: 0.89, ease: "myEaseSmooth", delay: 0 });
+			gsap.to(imageMask, { opacity: 0, rotationY: 55, transformOrigin: "50% 50% -890", duration: 0.89, ease: "myEaseSmooth", delay: 0 });
 
-				// titles in
-				.fromTo(
-					[titles, arrows, description],
-					{ x: -55, opacity: 0 },
-					{ x: 0, opacity: 1, duration: 0.89, ease: "myEaseSmooth", stagger: 0.03, delay: 0.3 }
-				)
+			// titles in
+			gsap.fromTo(
+				[titles, arrows, description],
+				{ x: -55, opacity: 0 },
+				{ x: 0, opacity: 1, duration: 0.89, ease: "myEaseSmooth", stagger: 0.03, delay: 0.3 }
+			);
 
-				// reset image position
-				.set(imageMask, { rotationY: -55, opacity: 0, duration: 0, delay: 1 });
+			// reset image position
+			gsap.set(imageMask, { rotationY: -55, opacity: 0, duration: 0, delay: 1 });
 		});
 	});
 }
