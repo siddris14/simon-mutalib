@@ -258,9 +258,10 @@ function sliderCtaHover() {
 	const image = selectAll(".new-slider-image");
 	const imageWrap = selectAll(".new-slider-image-wrap");
 
+	gsap.set(image, { rotationY: -90, opacity: 0 });
+
 	ctas.forEach((cta) => {
 		gsap.set(bgPurple, { yPercent: 101 });
-		gsap.set(imageWrap, { display: "flex", autoAlpha: 1 });
 
 		cta.addEventListener("mouseenter", () => {
 			// cta in
@@ -272,7 +273,7 @@ function sliderCtaHover() {
 			gsap.to([titles, arrows, description], { opacity: 0, duration: 0.55, ease: "myEaseSmooth", delay: 0 });
 
 			// image in
-			gsap.from(image, { opacity: 0, rotationY: -90, transformOrigin: "50% 30%", duration: 55, ease: "myEaseSmooth", delay: 0.1 });
+			gsap.to(image, { opacity: 1, rotationY: 0, transformOrigin: "50% 30%", duration: 55, ease: "myEaseSmooth", delay: 0.1 });
 		});
 
 		cta.addEventListener("mouseleave", () => {
@@ -288,7 +289,7 @@ function sliderCtaHover() {
 			gsap.to([titles, arrows, description], { opacity: 1, duration: 0.55, ease: "myEaseSmooth", delay: 0.1 });
 
 			// reset image position
-			gsap.to(image, { opacity: 0, rotationY: 0, duration: 0, delay: 0.1 });
+			gsap.to(image, { rotationY: -90, opacity: 0, duration: 0, delay: 0.1 });
 		});
 	});
 }
