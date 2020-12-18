@@ -293,8 +293,8 @@ function sliderCtaHover() {
 			// titles in
 			gsap.fromTo(
 				[titles, arrows, description],
-				{ x: -144, opacity: 0 },
-				{ x: 0, opacity: 1, duration: 0.89, ease: "myEaseSmooth", delay: 0.3 }
+				{ x: -89, opacity: 0 },
+				{ x: 0, opacity: 1, duration: 0.89, ease: "myEaseSmooth", stagger: 0.08, delay: 0.3 }
 			);
 
 			// reset image position
