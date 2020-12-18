@@ -291,7 +291,11 @@ function sliderCtaHover() {
 			gsap.to(imageMask, { opacity: 0, rotationY: 55, transformOrigin: "50% 50% -890", duration: 0.89, ease: "myEaseSmooth", delay: 0 });
 
 			// titles in
-			gsap.from([titles, arrows, description], { x: -144, opacity: 1, duration: 0.89, ease: "myEaseSmooth", delay: 0.3 });
+			gsap.fromTo(
+				[titles, arrows, description],
+				{ x: -144, opacity: 0 },
+				{ x: 0, opacity: 1, duration: 0.89, ease: "myEaseSmooth", delay: 0.3 }
+			);
 
 			// reset image position
 			gsap.set(imageMask, { rotationY: -55, opacity: 0, duration: 0, delay: 1 });
