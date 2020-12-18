@@ -3,12 +3,12 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Set Delay Time
-const delayTime = 1600;
+let delayTime = 1600;
 
 // Nav Links
 $(".new-nav-link").click(function (e) {
 	e.preventDefault();
-	const goTo = this.getAttribute("href");
+	let goTo = this.getAttribute("href");
 
 	setTimeout(function () {
 		window.location = goTo;
@@ -18,7 +18,7 @@ $(".new-nav-link").click(function (e) {
 // Logo Links
 $(".new-nav-logo").click(function (e) {
 	e.preventDefault();
-	const goTo = this.getAttribute("href");
+	let goTo = this.getAttribute("href");
 
 	setTimeout(function () {
 		window.location = goTo;
@@ -28,7 +28,7 @@ $(".new-nav-logo").click(function (e) {
 // Slider CTA Links
 $(".new-slider-cta").click(function (e) {
 	e.preventDefault();
-	const goTo = this.getAttribute("href");
+	let goTo = this.getAttribute("href");
 
 	setTimeout(function () {
 		window.location = goTo;
@@ -38,7 +38,7 @@ $(".new-slider-cta").click(function (e) {
 // Blog Cards Links
 $(".blog-card").click(function (e) {
 	e.preventDefault();
-	const goTo = this.getAttribute("href");
+	let goTo = this.getAttribute("href");
 
 	setTimeout(function () {
 		window.location = goTo;
@@ -48,7 +48,7 @@ $(".blog-card").click(function (e) {
 // Works Cards Links
 $(".new-work-link").click(function (e) {
 	e.preventDefault();
-	const goTo = this.getAttribute("href");
+	let goTo = this.getAttribute("href");
 
 	setTimeout(function () {
 		window.location = goTo;
@@ -58,7 +58,7 @@ $(".new-work-link").click(function (e) {
 // Next Project Links
 $(".temp-next-card-wrap").click(function (e) {
 	e.preventDefault();
-	const goTo = this.getAttribute("href");
+	let goTo = this.getAttribute("href");
 
 	setTimeout(function () {
 		window.location = goTo;
