@@ -148,14 +148,12 @@ function statisticsPin() {
 	tl.to(stats, { xPercent: -50 });
 
 	ScrollTrigger.create({
-		trigger: ".work-temp-stats-wrap",
+		trigger: stats,
 		start: "top 90%",
 		end: "bottom 10%",
 		animation: tl,
 		scrub: 1,
 		pin: true,
-		pinSpacing: false,
-		pinReparent: true,
 	});
 }
 
