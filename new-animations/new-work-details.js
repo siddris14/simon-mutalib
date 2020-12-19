@@ -35,8 +35,6 @@ function titleReveal() {
 	tl.from(title, { y: 233 });
 	tl.from(year, { y: 233 }, "<0.13");
 	tl.from(briefSplit.lines, { y: 89, stagger: 0.13 }, "<");
-
-	return tl;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -51,8 +49,6 @@ function heroImageReveal() {
 
 	tl.from(image, { xPercent: 110, scale: 1.3, opacity: 0 });
 	tl.from(imageMask, { xPercent: -101 }, "<");
-
-	return tl;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -69,9 +65,7 @@ function summaryReveal() {
 
 	tl.from(summarySplit.lines, { y: 233, stagger: 0.13 });
 
-	ScrollTrigger.create({ trigger: ".work-temp-client-content", start: "bottom 21%", animation: tl });
-
-	return tl;
+	ScrollTrigger.create({ trigger: ".work-temp-client-content", start: "bottom 40%", animation: tl });
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -90,8 +84,6 @@ function challengeSolution() {
 		tl.from(lineSplit.lines, { y: 233, stagger: 0.13 });
 
 		ScrollTrigger.create({ trigger: line, start: "top 95%", animation: tl });
-
-		return tl;
 	});
 }
 
@@ -131,8 +123,6 @@ function projectImagesReveal() {
 		tl.from(image, { opacity: 0, y: 233 });
 
 		ScrollTrigger.create({ trigger: image, start: "top 95%", animation: tl });
-
-		return tl;
 	});
 }
 
@@ -143,18 +133,16 @@ function projectImagesReveal() {
 function statisticsPin() {
 	const stats = select(".temp-stats-text");
 
-	const tl = gsap.timeline({ id: "tl", defaults: { duration: 1.34, ease: "myEaseSmooth" } });
+	const tl = gsap.timeline({
+		id: "tl",
+		defaults: {
+			duration: 1.34,
+			ease: "myEaseSmooth",
+			scrollTrigger: { trigger: stats, start: "top 90%", end: "bottom 10%", scrub: 1, pin: true },
+		},
+	});
 
 	tl.to(stats, { xPercent: -50 });
-
-	ScrollTrigger.create({
-		trigger: stats,
-		start: "top 90%",
-		end: "bottom 10%",
-		animation: tl,
-		scrub: 1,
-		pin: true,
-	});
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
