@@ -32,7 +32,7 @@ function titleReveal() {
 	const tl = gsap.timeline({ id: "tl", defaults: { duration: 1.34, ease: "myEaseSmooth" } });
 
 	tl.from(title, { y: 233, stagger: 0.13 });
-	tl.from(briefSplit.lines, { y: 89, stagger: 0.13 });
+	tl.from(briefSplit.lines, { y: 89, stagger: 0.13 }, "<");
 
 	return tl;
 }
@@ -47,8 +47,8 @@ function heroImageReveal() {
 
 	const tl = gsap.timeline({ id: "tl", defaults: { duration: 1.34, ease: "myEaseSmooth" } });
 
-	tl.from(image, { yPercent: 110, scale: 1.3, opacity: 0 });
-	tl.from(imageMask, { yPercent: -101 }, "<");
+	tl.from(image, { xPercent: 110, scale: 1.3, opacity: 0 });
+	tl.from(imageMask, { xPercent: -101 }, "<");
 
 	return tl;
 }
