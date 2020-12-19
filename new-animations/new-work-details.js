@@ -141,9 +141,9 @@ function statisticsPin() {
 		},
 	});
 
-	tl.to(stats, { xPercent: -90 });
+	tl.formTo(stats, { xPercent: 0 }, { xPercent: -90 });
 
-	ScrollTrigger.create({ trigger: ".work-temp-stats-wrap", start: "top 50%", end: "bottom 10%" });
+	ScrollTrigger.create({ trigger: ".work-temp-stats-wrap", start: "top 50%", end: "bottom 10%", animation: tl });
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
