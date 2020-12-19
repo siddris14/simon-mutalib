@@ -59,7 +59,7 @@ function initLoadingScreen() {
 	// Timeline Count
 	const tlCount = gsap.timeline({ defaults: { duration: 5, ease: "none" } });
 
-	tlCount.to(counter, { innerText: "100", snap: { innerText: 10 } }, "<.2");
+	tlCount.to(counter, { innerText: "100", snap: { innerText: 1 } }, "<.2");
 
 	// Timeline Out
 	const tlOut = gsap.timeline({ defaults: { duration: 1.34, ease: "myEaseSmooth" } });
