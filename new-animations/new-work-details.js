@@ -65,7 +65,7 @@ function summaryReveal() {
 
 	tl.from(summarySplit.lines, { y: 233, stagger: 0.13 });
 
-	ScrollTrigger.create({ trigger: ".work-temp-client-content", start: "bottom 50%", animation: tl });
+	ScrollTrigger.create({ trigger: summary, start: "top 95%", animation: tl });
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -133,16 +133,11 @@ function projectImagesReveal() {
 function statisticsPin() {
 	const stats = select(".temp-stats-text");
 
-	const tl = gsap.timeline({
-		id: "tl",
-		defaults: {
-			duration: 1.34,
-			ease: "myEaseSmooth",
-			//scrollTrigger: { trigger: stats, start: "top 90%", end: "bottom 10%", scrub: 1, pin: true },
-		},
-	});
+	const tl = gsap.timeline({ id: "tl", defaults: { duration: 1.34, ease: "myEaseSmooth" } });
 
 	tl.to(stats, { xPercent: -50 });
+
+	ScrollTrigger.create({ trigger: ".work-temp-stats-wrap", start: "top 90%", end: "bottom 10%", scrub: 1, pin: true, pinReparent: true });
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
