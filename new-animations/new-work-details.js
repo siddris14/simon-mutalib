@@ -69,7 +69,7 @@ function summaryReveal() {
 
 	tl.from(summarySplit.lines, { y: 233, stagger: 0.13 });
 
-	ScrollTrigger.create({ trigger: ".temp-approach", start: "top 95%", animation: tl });
+	ScrollTrigger.create({ trigger: ".work-temp-client-content", start: "bottom 21%", animation: tl });
 
 	return tl;
 }
