@@ -63,7 +63,9 @@ function summaryReveal() {
 
 	tl.from(summarySplit.lines, { y: 233, stagger: 0.13 });
 
-	ScrollTrigger.create({ trigger: ".temp-summary", start: "top 95%", animation: tl });
+	ScrollTrigger.create({ trigger: ".temp-approach", start: "top 95%", animation: tl });
+
+	return tl;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -82,6 +84,8 @@ function challengeSolution() {
 		tl.from(lineSplit.lines, { y: 233, stagger: 0.13 });
 
 		ScrollTrigger.create({ trigger: line, start: "top 95%", animation: tl });
+
+		return tl;
 	});
 }
 
@@ -91,22 +95,19 @@ function challengeSolution() {
 
 function viewProjectCtaHover() {
 	const cta = select(".temp-view-cta-mask");
-	const ctaText = select(".temp-view-cta-text");
 	const bgPurple = selectAll(".temp-view-cta");
 
 	gsap.set(bgPurple, { yPercent: 101 });
 
 	cta.addEventListener("mouseenter", () => {
 		// cta in
-		gsap.to(cta, { scale: 1.2, duration: 0.55, ease: "myEaseSmooth", delay: 0 });
-		gsap.to(ctaText, { scale: 0.8, duration: 0.55, ease: "myEaseSmooth", delay: 0 });
+		gsap.to(cta, { scale: 0.8, duration: 0.55, ease: "myEaseSmooth", delay: 0 });
 		gsap.to(bgPurple, { yPercent: 0, duration: 0.55, stagger: 0.05, ease: "myEaseSmooth", delay: 0 });
 	});
 
 	cta.addEventListener("mouseleave", () => {
 		// cta out
 		gsap.to(cta, { scale: 1, duration: 0.55, ease: "myEaseSmooth" });
-		gsap.to(ctaText, { scale: 1, duration: 0.55, ease: "myEaseSmooth", delay: 0 });
 		gsap.to(bgPurple, { yPercent: 101, duration: 0.55, stagger: 0.05, ease: "myEaseSmooth", delay: 0 });
 	});
 }
