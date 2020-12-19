@@ -139,11 +139,10 @@ function statisticsPin() {
 			duration: 5,
 			ease: "myEaseSmooth",
 		},
+		scrollTrigger: { trigger: ".work-temp-stats-wrap", start: "top 50%", end: "bottom 10%", scrub: 1 },
 	});
 
 	tl.formTo(stats, { xPercent: 0 }, { xPercent: -100 });
-
-	ScrollTrigger.create({ trigger: ".work-temp-stats-wrap", start: "top 50%", end: "bottom 10%", animation: tl });
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
