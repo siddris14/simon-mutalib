@@ -136,12 +136,12 @@ function statisticsPin() {
 	const tl = gsap.timeline({
 		id: "tl",
 		defaults: {
-			duration: 1.34,
+			duration: 5,
 			ease: "myEaseSmooth",
 		},
 	});
 
-	tl.formTo(stats, { xPercent: 0 }, { xPercent: -90 });
+	tl.formTo(stats, { xPercent: 0 }, { xPercent: -100 });
 
 	ScrollTrigger.create({ trigger: ".work-temp-stats-wrap", start: "top 50%", end: "bottom 10%", animation: tl });
 }
