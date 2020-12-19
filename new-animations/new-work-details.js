@@ -21,8 +21,8 @@ preloadImages().then(() => {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function titleReveal() {
-	const title = selectAll("#work-title");
-	const year = selectAll("work-year");
+	const title = select("#work-title");
+	const year = select("#work-year");
 	const brief = select(".work-temp-desc-text");
 
 	const briefSplit = new SplitText(brief, { type: "chars lines words", linesClass: "briefChild" });
@@ -123,9 +123,9 @@ function viewProjectCtaHover() {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function projectImagesReveal() {
-	const images = selectAll(".works-temp-images");
+	const imagesItem = selectAll(".works-temp-img-item");
 
-	images.forEach((image) => {
+	imagesItem.forEach((image) => {
 		const tl = gsap.timeline({ id: "tl", defaults: { duration: 1.34, ease: "myEaseSmooth" } });
 
 		tl.from(image, { opacity: 0, y: 233 });
