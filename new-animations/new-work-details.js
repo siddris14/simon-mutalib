@@ -142,7 +142,7 @@ function statisticsPin() {
 		scrollTrigger: { trigger: ".work-temp-stats-wrap", start: "top 50%", end: "bottom 10%", scrub: 1 },
 	});
 
-	tl.formTo(stats, { xPercent: 0 }, { xPercent: -100 });
+	tl.to(stats, { xPercent: 0 }, { xPercent: -100 });
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
