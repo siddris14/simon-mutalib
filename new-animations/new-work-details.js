@@ -65,7 +65,7 @@ function summaryReveal() {
 
 	tl.from(summarySplit.lines, { y: 233, stagger: 0.13 });
 
-	ScrollTrigger.create({ trigger: ".work-temp-client-content", start: "bottom 40%", animation: tl });
+	ScrollTrigger.create({ trigger: ".work-temp-client-content", start: "bottom 50%", animation: tl });
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -138,7 +138,7 @@ function statisticsPin() {
 		defaults: {
 			duration: 1.34,
 			ease: "myEaseSmooth",
-			scrollTrigger: { trigger: stats, start: "top 90%", end: "bottom 10%", scrub: 1, pin: true },
+			//scrollTrigger: { trigger: stats, start: "top 90%", end: "bottom 10%", scrub: 1, pin: true },
 		},
 	});
 
