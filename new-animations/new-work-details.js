@@ -60,7 +60,7 @@ function heroImageReveal() {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function summaryReveal() {
-	const summary = select(".work-temp-title-text");
+	const summary = select(".temp-summary-text");
 
 	const summarySplit = new SplitText(summary, { type: "chars lines words", linesClass: "summaryChild" });
 	new SplitText(summary, { type: "chars lines words", linesClass: "summaryParent" });
