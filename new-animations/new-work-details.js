@@ -133,16 +133,20 @@ function projectImagesReveal() {
 function statisticsPin() {
 	const stats = select(".temp-stats-text");
 
+	const statsWidth = stats.clientWidth;
+	const statsWidthPx = -statsWidth + "px";
+
 	const tl = gsap.timeline({
-		id: "tl",
-		defaults: {
-			duration: 5,
-			ease: "myEaseSmooth",
+		scrollTrigger: {
+			trigger: ".work-temp-stats-wrap",
+			start: "top 90%",
+			end: "bottom 10%",
+			scrub: 1,
+			markers: false,
 		},
-		scrollTrigger: { trigger: ".work-temp-stats-wrap", start: "top 50%", end: "bottom 10%", scrub: 1 },
 	});
 
-	tl.to(stats, { x: -1000 });
+	tl.to(stats, { x: statsWidthPx });
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
