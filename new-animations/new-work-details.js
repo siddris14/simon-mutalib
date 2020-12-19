@@ -33,6 +33,8 @@ function titleReveal() {
 
 	tl.from(title, { y: 233, stagger: 0.13 });
 	tl.from(briefSplit.lines, { y: 89, stagger: 0.13 }, "<");
+
+	return tl;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -47,6 +49,8 @@ function heroImageReveal() {
 
 	tl.from(image, { xPercent: 110, scale: 1.3, opacity: 0 });
 	tl.from(imageMask, { xPercent: -101 }, "<");
+
+	return tl;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -110,6 +114,8 @@ function viewProjectCtaHover() {
 		gsap.to(cta, { scale: 1, duration: 0.55, ease: "myEaseSmooth" });
 		gsap.to(bgPurple, { yPercent: 101, duration: 0.55, stagger: 0.05, ease: "myEaseSmooth", delay: 0 });
 	});
+
+	return tl;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -125,6 +131,8 @@ function projectImagesReveal() {
 		tl.from(image, { opacity: 0, y: 233 });
 
 		ScrollTrigger.create({ trigger: image, start: "top 95%", animation: tl });
+
+		return tl;
 	});
 }
 
