@@ -150,6 +150,7 @@ function statisticsPin() {
 	ScrollTrigger.create({
 		trigger: ".work-temp-stats-wrap",
 		start: "top 90%",
+		end: "bottom 10%",
 		animation: tl,
 		scrub: 1,
 		pin: true,
