@@ -117,12 +117,14 @@ function viewProjectCtaHover() {
 function projectImagesReveal() {
 	const imagesItem = selectAll(".works-temp-img-item");
 
-	imagesItem.forEach((image) => {
+	imagesItem.forEach((item) => {
+		const image = item.querySelector(".temp-image");
+
 		const tl = gsap.timeline({ id: "tl", defaults: { duration: 1.34, ease: "myEaseSmooth" } });
 
 		tl.from(image, { opacity: 0, y: 233 });
 
-		ScrollTrigger.create({ trigger: image, start: "top 95%", animation: tl });
+		ScrollTrigger.create({ trigger: item, start: "top 95%", animation: tl });
 	});
 }
 
