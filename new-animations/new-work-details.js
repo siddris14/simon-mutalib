@@ -124,7 +124,7 @@ function projectImagesReveal() {
 
 		tl.from(image, { opacity: 0, y: 233 });
 
-		ScrollTrigger.create({ trigger: item, start: "top 95%", animation: tl });
+		ScrollTrigger.create({ trigger: image, start: "top 95%", animation: tl });
 	});
 }
 
