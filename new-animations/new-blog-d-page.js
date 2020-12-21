@@ -38,8 +38,6 @@ function titleReveal() {
 	tl.from(titleSplit.lines, { y: 233, stagger: 0.13 });
 	tl.from(dateSplit.chars, { y: 144, stagger: 0.02 }, "<");
 	tl.from(categorySplit.chars, { y: 144, stagger: 0.02 }, "<.2");
-
-	return tl;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -54,8 +52,24 @@ function heroImageReveal() {
 
 	tl.from(image, { yPercent: 110, scale: 1.3, opacity: 0 });
 	tl.from(imageMask, { yPercent: -101 }, "<");
+}
 
-	return tl;
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Paragraph Reveal Aniamtions
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function heroParaReveal() {
+	const para = select(".temp-h4-para");
+	const trigger = select(".temp-h4-para-wrap");
+
+	const paraSplit = new SplitText(para, { type: "chars lines words", linesClass: "paraChild" });
+	new SplitText(para, { type: "chars lines words", linesClass: "paraParent" });
+
+	const tl = gsap.timeline({ id: "tl", defaults: { duration: 1.34, ease: "myEaseSmooth" } });
+
+	tl.from(paraSplit.lines, { y: 144, stagger: 0.13 });
+
+	ScrollTrigger.create({ trigger: trigger, start: "top 90%", animation: tl });
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -72,8 +86,6 @@ function introImageOne() {
 	tl.from(imageMask, { xPercent: -101 }, "<");
 
 	ScrollTrigger.create({ trigger: imageMask, start: "top 85%", animation: tl });
-
-	return tl;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -90,8 +102,6 @@ function introImageTwo() {
 	tl.from(imageMask, { xPercent: -101 }, "<");
 
 	ScrollTrigger.create({ trigger: imageMask, start: "top 85%", animation: tl });
-
-	return tl;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -108,8 +118,6 @@ function blogImageReveal() {
 	tl.from(imagesMask, { xPercent: -101, stagger: 0.08 }, "<");
 
 	ScrollTrigger.create({ trigger: imagesMask, start: "top 85%", animation: tl });
-
-	return tl;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
