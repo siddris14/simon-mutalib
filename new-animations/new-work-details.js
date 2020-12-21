@@ -25,8 +25,8 @@ function titleReveal() {
 	const year = select("#work-year");
 	const brief = select(".work-temp-desc-text");
 
-	const briefSplit = new SplitText(brief, { type: "chars lines words", linesClass: "briefChild" });
-	new SplitText(brief, { type: "chars lines words", linesClass: "briefParent" });
+	const briefSplit = new SplitText(brief, { type: "lines", linesClass: "briefChild" });
+	new SplitText(brief, { type: "lines", linesClass: "briefParent" });
 
 	gsap.set(".new-work-temp-content", { autoAlpha: 1 });
 
@@ -58,8 +58,8 @@ function heroImageReveal() {
 function summaryReveal() {
 	const summary = select(".temp-summary-text");
 
-	const summarySplit = new SplitText(summary, { type: "chars lines words", linesClass: "summaryChild" });
-	new SplitText(summary, { type: "chars lines words", linesClass: "summaryParent" });
+	const summarySplit = new SplitText(summary, { type: "lines", linesClass: "summaryChild" });
+	new SplitText(summary, { type: "lines", linesClass: "summaryParent" });
 
 	const tl = gsap.timeline({ id: "tl", defaults: { duration: 1.34, ease: "myEaseSmooth" } });
 
@@ -76,8 +76,8 @@ function challengeSolution() {
 	const challenges = selectAll(".temp-app-details-text");
 
 	challenges.forEach((line) => {
-		const lineSplit = new SplitText(line, { type: "chars lines words", linesClass: "lineChild" });
-		new SplitText(line, { type: "chars lines words", linesClass: "lineParent" });
+		const lineSplit = new SplitText(line, { type: "lines", linesClass: "lineChild" });
+		new SplitText(line, { type: "lines", linesClass: "lineParent" });
 
 		const tl = gsap.timeline({ id: "tl", defaults: { duration: 1.34, ease: "myEaseSmooth" } });
 
@@ -107,7 +107,7 @@ function viewProjectCtaHover() {
 		// cta out
 		gsap.to(cta, { scale: 1, duration: 0.55, ease: "myEaseSmooth" });
 		gsap.to(bgPurple, { yPercent: -101, duration: 0.55, stagger: { from: "end", each: 0.05 }, ease: "myEaseSmooth", delay: 0 });
-		
+
 		gsap.set(bgPurple, { yPercent: 101, duration: 0, delay: 1 });
 	});
 }
