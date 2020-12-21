@@ -155,23 +155,27 @@ function initSliderHome() {
 
 		const tlOut = gsap.timeline({ id: "tlOut", defaults: { duration: 0.55, ease: "myEaseSmooth" } });
 
-		tlOut.to(SLIDER, { autoAlpha: 0 }, "<");
+		const title = SLIDER.querySelectorAll(".new-title-h0");
+		const titleBlock = SLIDER.querySelectorAll(".new-slider-title");
+		const brief = SLIDER.querySelectorAll(".new-slider-brief");
 
-		// const title = SLIDER.querySelectorAll(".new-title-h0");
-		// const titleBlock = SLIDER.querySelectorAll(".new-slider-title");
-		// const brief = SLIDER.querySelectorAll(".new-slider-brief");
+		const titleSplit = new SplitText(title);
+		const brifSplit = new SplitText(brief, { type: "lines", linesClass: "slideBriefChild" });
+		new SplitText(brief, { type: "lines", linesClass: "slideBriefParent" });
 
-		// const titleSplit = new SplitText(title);
-		// const brifSplit = new SplitText(brief, { type: "lines", linesClass: "slideBriefChild" });
-		// new SplitText(brief, { type: "lines", linesClass: "slideBriefParent" });
+		tlOut.fromTo(
+			titleBlock,
+			{ y: 0, opacity: 1 },
+			{ y: 89, opacity: 0, duration: 1.34, stagger: { from: "end", axis: "y", each: 0.05 } },
+			"<"
+		);
+		tlOut.fromTo(titleSplit.chars, { y: 0 }, { y: 144, duration: 1.34, stagger: { from: "end", axis: "y", each: 0.01 } }, "<");
+		tlOut.fromTo(brifSplit.lines, { y: 0 }, { y: -144, duration: 1.34, stagger: 0.03 }, "<");
+		tlOut.to(SLIDER, { autoAlpha: 0 }, "<1");
 
-		// tlOut.to(titleBlock, { y: 89, opacity: 0, duration: 1.34, stagger: { from: "end", axis: "y", each: 0.05 } }, "<");
-		// tlOut.to(titleSplit.chars, { y: 144, duration: 1.34, stagger: { from: "end", axis: "y", each: 0.01 } }, "<");
-		// tlOut.to(brifSplit.lines, { y: -144, duration: 1.34, stagger: 0.03 }, "<");
-
-		// tlOut.set(titleBlock, { y: -89, opacity: 0 });
-		// tlOut.set(titleSplit.chars, { y: -144 });
-		// tlOut.set(brifSplit.lines, { y: 144 });
+		tlOut.set(titleBlock, { y: -89, opacity: 0 });
+		tlOut.set(titleSplit.chars, { y: -144 });
+		tlOut.set(brifSplit.lines, { y: 144 });
 
 		return tlOut;
 	}
