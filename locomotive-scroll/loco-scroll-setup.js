@@ -24,5 +24,5 @@ ScrollTrigger.scrollerProxy(scrollContainer, {
 	},
 
 	// Pin with Position: Fixed on mobile
-	pinType: document.querySelector(scrollContainer).style.transform ? "transform" : "fixed",
+	pinType: scrollContainer.style.transform ? "transform" : "fixed",
 });
