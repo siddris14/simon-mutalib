@@ -2,10 +2,10 @@
 //This code comes BEFORE your animations
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const scrollContainer = ".new-simonmutalib";
+const scrollContainer = document.querySelector(".new-work-container");
 
 const locoScroll = new LocomotiveScroll({
-	el: document.querySelector(scrollContainer),
+	el: scrollContainer,
 	smooth: true,
 	lerp: 0.1,
 });
