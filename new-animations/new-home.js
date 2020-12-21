@@ -134,6 +134,10 @@ function initSliderHome() {
 		const brifSplit = new SplitText(brief, { type: "lines", linesClass: "slideBriefChild" });
 		new SplitText(brief, { type: "lines", linesClass: "slideBriefParent" });
 
+		gsap.set(titleBlock, { y: 0, opacity: 1 });
+		gsap.set(titleSplit.chars, { y: 0 });
+		gsap.set(brifSplit.lines, { y: 0 });
+
 		const tlIn = gsap.timeline({ id: "tlIn", defaults: { duration: 1.34, ease: "myEaseSmooth" } });
 
 		tlIn.fromTo(SLIDER, { autoAlpha: 0 }, { autoAlpha: 1 }, "<.2");
@@ -143,10 +147,6 @@ function initSliderHome() {
 		tlIn.fromTo(ctaOpen, { scale: 0, rotation: 45 }, { scale: 1, rotation: 0 }, "<.2");
 		tlIn.fromTo(nextArrow, { x: -13, opacity: 0 }, { x: 0, opacity: 1 }, "<.1");
 		tlIn.fromTo(previousArrow, { x: 13, opacity: 0 }, { x: 0, opacity: 1 }, "<");
-
-		tlIn.set(titleBlock, { y: 0, opacity: 1 });
-		tlIn.set(titleSplit.chars, { y: 0 });
-		tlIn.set(brifSplit.lines, { y: 0 });
 
 		return tlIn;
 	}
@@ -172,9 +172,9 @@ function initSliderHome() {
 		tlOut.to(brifSplit.lines, { y: -144, duration: 1.34, stagger: 0.03 }, "<");
 		tlOut.to(SLIDER, { autoAlpha: 0 }, "<1");
 
-		tlOut.set(titleBlock, { y: -89, opacity: 0 });
-		tlOut.set(titleSplit.chars, { y: -144 });
-		tlOut.set(brifSplit.lines, { y: 144 });
+		gsap.set(titleBlock, { y: -89, opacity: 0, delay: 0 });
+		gsap.set(titleSplit.chars, { y: -144, delay: 0 });
+		gsap.set(brifSplit.lines, { y: 144, delay: 0 });
 
 		return tlOut;
 	}
@@ -285,7 +285,7 @@ function sliderCtaHover() {
 
 		cta.addEventListener("mouseleave", () => {
 			// cta out
-			gsap.to(cta, { scale: 1, duration: 0.55, ease: "myEaseSmooth" });
+			gsap.to(cta, { scale: 1, duration: 0.55, ease: "myEaseSmooth", delay: 0 });
 			gsap.to(ctaText, { scale: 1, duration: 0.55, ease: "myEaseSmooth", delay: 0 });
 			gsap.to(bgPurple, { yPercent: -101, duration: 0.55, stagger: { from: "end", each: 0.05 }, ease: "myEaseSmooth", delay: 0 });
 			gsap.set(bgPurple, { yPercent: 101, duration: 0, delay: 1 });
