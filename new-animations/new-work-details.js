@@ -149,7 +149,6 @@ function statsPinReveal() {
 			scrub: 1,
 			pin: true,
 			pinReparent: true,
-			pinSpacing: false,
 			start: "top 0%",
 			end: statsWrapWidth,
 		},
