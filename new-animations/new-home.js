@@ -57,7 +57,7 @@ function initLoadingScreen() {
 	tlIn.from(captionSplit.chars, { opacity: 0, stagger: { from: "random", each: 0.03 } }, "<.3");
 
 	// Timeline Count
-	const tlCount = gsap.timeline({ defaults: { duration: 5, ease: "none" } });
+	const tlCount = gsap.timeline({ defaults: { duration: 3, ease: "none" } });
 
 	tlCount.to(counter, { innerText: "100", snap: { innerText: 1 } }, "<.2");
 
@@ -67,7 +67,7 @@ function initLoadingScreen() {
 	tlOut.to(smTitleSplit.chars, { y: -233, stagger: 0.08 }, "<.5");
 	tlOut.to(counter, { y: -233, stagger: 0.08 }, "<.3");
 	tlOut.to(captionSplit.lines, { y: 144, stagger: 0.05 }, "<");
-	tlOut.to(".new-loading-screen", { xPercent: 105, ease: Expo.easeInOut }, "<1");
+	tlOut.to(".new-loading-screen", { xPercent: 105, ease: Expo.easeInOut }, "<.5");
 	tlOut.to(".new-loading-screen", { display: "none" }, "<1");
 
 	// Master Timeline
@@ -338,5 +338,5 @@ function initHomeAnimation() {
 		initSliderHome();
 		sliderCtaHover();
 		sliderArrowsHover();
-	}, 10000);
+	}, 8000);
 }
