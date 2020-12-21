@@ -7,7 +7,7 @@ const scrollContainer = ".new-simonmutalib";
 const locoScroll = new LocomotiveScroll({
 	el: document.querySelector(scrollContainer),
 	smooth: true,
-	lerp: 0.05,
+	lerp: 0.1,
 });
 
 // Update ScrollTrigger on scroll
