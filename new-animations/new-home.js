@@ -144,6 +144,10 @@ function initSliderHome() {
 		tlIn.fromTo(nextArrow, { x: -13, opacity: 0 }, { x: 0, opacity: 1 }, "<.1");
 		tlIn.fromTo(previousArrow, { x: 13, opacity: 0 }, { x: 0, opacity: 1 }, "<");
 
+		tlIn.set(titleBlock, { y: 0, opacity: 1 });
+		tlIn.set(titleSplit.chars, { y: 0 });
+		tlIn.set(brifSplit.lines, { y: 0 });
+
 		return tlIn;
 	}
 
@@ -163,14 +167,9 @@ function initSliderHome() {
 		const brifSplit = new SplitText(brief, { type: "lines", linesClass: "slideBriefChild" });
 		new SplitText(brief, { type: "lines", linesClass: "slideBriefParent" });
 
-		tlOut.fromTo(
-			titleBlock,
-			{ y: 0, opacity: 1 },
-			{ y: 89, opacity: 0, duration: 1.34, stagger: { from: "end", axis: "y", each: 0.05 } },
-			"<"
-		);
-		tlOut.fromTo(titleSplit.chars, { y: 0 }, { y: 144, duration: 1.34, stagger: { from: "end", axis: "y", each: 0.01 } }, "<");
-		tlOut.fromTo(brifSplit.lines, { y: 0 }, { y: -144, duration: 1.34, stagger: 0.03 }, "<");
+		tlOut.to(titleBlock, { y: 89, opacity: 0, duration: 1.34, stagger: { from: "end", axis: "y", each: 0.05 } }, "<");
+		tlOut.to(titleSplit.chars, { y: 144, duration: 1.34, stagger: { from: "end", axis: "y", each: 0.01 } }, "<");
+		tlOut.to(brifSplit.lines, { y: -144, duration: 1.34, stagger: 0.03 }, "<");
 		tlOut.to(SLIDER, { autoAlpha: 0 }, "<1");
 
 		tlOut.set(titleBlock, { y: -89, opacity: 0 });
