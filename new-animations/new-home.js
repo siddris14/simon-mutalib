@@ -134,10 +134,6 @@ function initSliderHome() {
 		const brifSplit = new SplitText(brief, { type: "lines", linesClass: "slideBriefChild" });
 		new SplitText(brief, { type: "lines", linesClass: "slideBriefParent" });
 
-		gsap.set(titleBlock, { y: 0, opacity: 1 });
-		gsap.set(titleSplit.chars, { y: 0 });
-		gsap.set(brifSplit.lines, { y: 0 });
-
 		const tlIn = gsap.timeline({ id: "tlIn", defaults: { duration: 1.34, ease: "myEaseSmooth" } });
 
 		tlIn.fromTo(SLIDER, { autoAlpha: 0 }, { autoAlpha: 1 }, "<.2");
@@ -156,25 +152,9 @@ function initSliderHome() {
 		const goPrevious = direction === "previous";
 
 		const SLIDER = select("div.slide0" + index);
-
 		const tlOut = gsap.timeline({ id: "tlOut", defaults: { duration: 0.55, ease: "myEaseSmooth" } });
 
-		const title = SLIDER.querySelectorAll(".new-title-h0");
-		const titleBlock = SLIDER.querySelectorAll(".new-slider-title");
-		const brief = SLIDER.querySelectorAll(".new-slider-brief");
-
-		const titleSplit = new SplitText(title);
-		const brifSplit = new SplitText(brief, { type: "lines", linesClass: "slideBriefChild" });
-		new SplitText(brief, { type: "lines", linesClass: "slideBriefParent" });
-
-		tlOut.to(titleBlock, { y: 89, opacity: 0, duration: 1.34, stagger: { from: "end", axis: "y", each: 0.05 } }, "<");
-		tlOut.to(titleSplit.chars, { y: 144, duration: 1.34, stagger: { from: "end", axis: "y", each: 0.01 } }, "<");
-		tlOut.to(brifSplit.lines, { y: -144, duration: 1.34, stagger: 0.03 }, "<");
-		tlOut.to(SLIDER, { autoAlpha: 0 }, "<1");
-
-		gsap.set(titleBlock, { y: -89, opacity: 0, delay: 0 });
-		gsap.set(titleSplit.chars, { y: -144, delay: 0 });
-		gsap.set(brifSplit.lines, { y: 144, delay: 0 });
+		tlOut.to(SLIDER, { autoAlpha: 0 }, "<");
 
 		return tlOut;
 	}
@@ -288,7 +268,7 @@ function sliderCtaHover() {
 			gsap.to(cta, { scale: 1, duration: 0.55, ease: "myEaseSmooth", delay: 0 });
 			gsap.to(ctaText, { scale: 1, duration: 0.55, ease: "myEaseSmooth", delay: 0 });
 			gsap.to(bgPurple, { yPercent: -101, duration: 0.55, stagger: { from: "end", each: 0.05 }, ease: "myEaseSmooth", delay: 0 });
-			gsap.set(bgPurple, { yPercent: 101, duration: 0, delay: 1 });
+			gsap.set(bgPurple, { yPercent: 101, duration: 0, delay: 0.5 });
 
 			// image out
 			gsap.to(image, { scale: 1.15, duration: 0.89, ease: "myEaseSmooth", delay: 0 });
