@@ -67,7 +67,7 @@ function initLoadingScreen() {
 	tlOut.to(smTitleSplit.chars, { y: -233, stagger: 0.08 }, "<.5");
 	tlOut.to(counter, { y: -233, stagger: 0.08 }, "<.3");
 	tlOut.to(captionSplit.lines, { y: 144, stagger: 0.05 }, "<");
-	tlOut.to(".new-loading-screen", { xPercent: 105, ease: Expo.easeInOut }, "<.5");
+	tlOut.to(".new-loading-screen", { xPercent: 105, ease: Expo.easeInOut }, "<.2");
 	tlOut.to(".new-loading-screen", { display: "none" }, "<1");
 
 	// Master Timeline
@@ -338,5 +338,5 @@ function initHomeAnimation() {
 		initSliderHome();
 		sliderCtaHover();
 		sliderArrowsHover();
-	}, 8000);
+	}, 6500);
 }
