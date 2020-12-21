@@ -107,6 +107,8 @@ function viewProjectCtaHover() {
 		// cta out
 		gsap.to(cta, { scale: 1, duration: 0.55, ease: "myEaseSmooth" });
 		gsap.to(bgPurple, { yPercent: -101, duration: 0.55, stagger: { from: "end", each: 0.05 }, ease: "myEaseSmooth", delay: 0 });
+		
+		gsap.set(bgPurple, { yPercent: 101, duration: 0, delay: 1 });
 	});
 }
 
