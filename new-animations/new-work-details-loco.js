@@ -142,16 +142,16 @@ function statsPinReveal() {
 	const tl = gsap.timeline({ defaults: { duration: 1.34 } });
 
 	tl.to(statsWrap, {
+		x: -statsHorizontalLength,
+
 		scrollTrigger: {
 			scroller: ".new-simonmutalib",
 			trigger: "#stats-section",
-			scrub: true,
+			scrub: 1,
 			pin: true,
-			start: "top top",
+			start: "top 0%",
 			end: statsWrapWidth,
 		},
-
-		x: -statsHorizontalLength,
 	});
 }
 
