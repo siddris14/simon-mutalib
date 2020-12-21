@@ -284,7 +284,8 @@ function sliderCtaHover() {
 			// cta out
 			gsap.to(cta, { scale: 1, duration: 0.55, ease: "myEaseSmooth" });
 			gsap.to(ctaText, { scale: 1, duration: 0.55, ease: "myEaseSmooth", delay: 0 });
-			gsap.to(bgPurple, { yPercent: 101, duration: 0.55, stagger: 0.05, ease: "myEaseSmooth", delay: 0 });
+			gsap.to(bgPurple, { yPercent: -101, duration: 0.55, stagger: { from: "end", each: 0.05 }, ease: "myEaseSmooth", delay: 0 });
+			gsap.set(bgPurple, { yPercent: 101, duration: 0, delay: 1 });
 
 			// image out
 			gsap.to(image, { scale: 1.15, duration: 0.89, ease: "myEaseSmooth", delay: 0 });
