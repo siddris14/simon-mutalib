@@ -65,7 +65,7 @@ function summaryReveal() {
 
 	tl.from(summarySplit.lines, { y: 233, stagger: 0.13 });
 
-	ScrollTrigger.create({ scroller: ".new-simonmutalib", trigger: summary, start: "top 100%", animation: tl });
+	ScrollTrigger.create({ scroller: ".new-work-container", trigger: summary, start: "top 100%", animation: tl });
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -83,7 +83,7 @@ function challengeSolution() {
 
 		tl.from(lineSplit.lines, { y: 233, stagger: 0.13 });
 
-		ScrollTrigger.create({ scroller: ".new-simonmutalib", trigger: line, start: "top 95%", animation: tl });
+		ScrollTrigger.create({ scroller: ".new-work-container", trigger: line, start: "top 95%", animation: tl });
 	});
 }
 
@@ -126,7 +126,7 @@ function projectImagesReveal() {
 
 		tl.from(image, { opacity: 0, y: 233 });
 
-		ScrollTrigger.create({ scroller: ".new-simonmutalib", trigger: image, start: "top 95%", animation: tl });
+		ScrollTrigger.create({ scroller: ".new-work-container", trigger: image, start: "top 95%", animation: tl });
 	});
 }
 
@@ -145,7 +145,7 @@ function statsPinReveal() {
 		x: -statsHorizontalLength,
 
 		scrollTrigger: {
-			scroller: ".new-simonmutalib",
+			scroller: ".new-work-container",
 			trigger: "#stats-section",
 			scrub: 1,
 			pin: true,
